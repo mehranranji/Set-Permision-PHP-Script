@@ -48,7 +48,7 @@
   <form action="" method="post">
     <input type="hidden" name="run" value="true" />
     <div class="form-group"><input type="submit" value="Run Script" /></div>
-    <?
+    <?php
       function chmod_r($dir, $dirPermissions, $filePermissions) {
           $dp = opendir($dir);
           $html = '';
@@ -70,7 +70,7 @@
           closedir($dp);
       }
 
-      if($_POST['run']):
+      if(isset($_POST['run'])):
         $dirperm = 0755;
         $fileperm = 0644;
         echo '<textarea rows="10" readonly>'.chmod_r(dirname(__FILE__), $dirperm, $fileperm).'</textarea>';
